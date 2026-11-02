@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Masuk | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+    <style>
+      /* Contoh CSS internal untuk layar login berukuran kecil */
+      @media (max-width: 420px) {
+        .login-demo {
+          font-size: 11px;
+        }
+      }
+    </style>
+  </head>
+  <body data-page="login">
+    <main class="login-page">
+      <section class="login-art" aria-label="Tentang Toko Buku">
+        <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true"><img src="assets/logo.svg" alt="" width="45" height="45"></span><span class="brand-name">Toko <span>Buku</span></span></a>
+        <div class="login-hero">
+          <p class="eyebrow" style="color:#ebd3a8">BUKU UNTUK SETIAP LANGKAH BELAJAR</p>
+          <h2>Temukan buku yang pas untuk <em>ceritamu.</em></h2>
+          <p>Pilih buku yang dibutuhkan, lakukan pemesanan, dan pantau proses pengirimannya.</p>
+          <div class="login-books" aria-hidden="true">
+            <img src="img/pengantar_komunikasi.jpg" alt=""><img src="img/manajemen_keuangan.jpg" alt=""><img src="img/kepemimpinan.jpg" alt="">
+          </div>
+          <div class="login-book-note" aria-hidden="true">Pilihan buku untuk menemani semester ini <span>↗</span></div>
+        </div>
+        <div class="login-art-footer">
+          Koleksi akademik pilihan · Belanja buku lebih praktis
+        </div>
+      </section>
+      <section class="login-pane" aria-labelledby="login-heading">
+        <div class="login-box">
+          <p class="eyebrow">SELAMAT DATANG KEMBALI</p>
+          <h1 id="login-heading">Selamat datang kembali.</h1>
+          <p>Masuk menggunakan akun yang terdaftar untuk melanjutkan pemesanan buku.</p>
+          <div class="alert-banner" id="login-error" role="alert" hidden>
+            email/password yang anda masukkan salah
+          </div>
+          <form id="login-form">
+            <div class="field" style="margin-bottom:18px">
+              <label for="login-email">Alamat email</label>
+              <input class="input" id="login-email" name="email" type="email" placeholder="contoh@email.com" autocomplete="username" required>
+            </div>
+            <div class="field">
+              <label for="login-password">Password</label>
+              <input class="input" id="login-password" name="password" type="password" placeholder="Masukkan password" autocomplete="current-password" required>
+            </div>
+            <div class="login-links">
+              <span class="caption">Gunakan akun contoh</span><button type="button" class="text-link" data-dialog="forgot-modal">Lupa password?</button>
+            </div>
+            <button class="btn btn-block" style="margin-top:24px" type="submit">Masuk</button>
+          </form>
+          <div class="login-demo">
+            <strong>AKUN UNTUK PENGUJIAN</strong>Admin: tedi@gmail.com / tedi123<br>Pengguna: risma@gmail.com / risma123<br>Pengguna: mhe@gmail.com / mhe123
+          </div>
+          <p class="login-switch">Belum punya akun? <button type="button" class="text-link" data-dialog="register-modal">Daftar sekarang</button></p>
+        </div>
+      </section>
+    </main>
+    <dialog id="forgot-modal" aria-labelledby="forgot-modal-heading">
+      <div class="dialog-head">
+        <h2 id="forgot-modal-heading">Lupa Password</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="forgot-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <p class="muted">Formulir ini memeriksa alamat email yang terdaftar. Pengiriman tautan pemulihan belum tersedia karena aplikasi belum terhubung dengan layanan email.</p>
+        <form id="forgot-form">
+          <div class="field">
+            <label for="forgot-email">Email akun</label>
+            <input class="input" id="forgot-email" type="email" placeholder="nama@email.com" required>
+          </div>
+          <p class="info-note" id="forgot-result" role="status" hidden style="margin-top:14px"></p>
+          <div class="dialog-actions">
+            <button type="button" class="btn btn-outline" data-close="forgot-modal">Batal</button><button type="submit" class="btn">Periksa Email</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog id="register-modal" aria-labelledby="register-modal-heading">
+      <div class="dialog-head">
+        <h2 id="register-modal-heading">Daftar Akun Baru</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="register-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <p class="muted">Buat akun pengguna untuk mencoba aplikasi. Data disimpan hanya di browser ini.</p>
+        <form id="register-form">
+          <div class="field" style="margin-bottom:14px">
+            <label for="register-name">Nama lengkap</label>
+            <input class="input" id="register-name" required minlength="3" placeholder="Nama lengkap" autocomplete="name">
+          </div>
+          <div class="field" style="margin-bottom:14px">
+            <label for="register-email">Email</label>
+            <input class="input" id="register-email" type="email" required placeholder="nama@email.com" autocomplete="email">
+          </div>
+          <div class="field">
+            <label for="register-password">Password (minimal 6 karakter)</label>
+            <input class="input" id="register-password" type="password" required minlength="6" placeholder="Buat password" autocomplete="new-password">
+          </div>
+          <div class="dialog-actions">
+            <button type="button" class="btn btn-outline" data-close="register-modal">Batal</button><button class="btn" type="submit">Buat Akun</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>

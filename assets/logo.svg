@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 72 72" role="img" aria-label="Toko Buku">
+  <rect width="72" height="72" rx="18" fill="#214c39"/>
+  <path d="M16 22.5C23 19.5 30 20.5 36 24c6-3.5 13-4.5 20-1.5v29c-7-2.8-14-2-20 2.5-6-4.5-13-5.3-20-2.5z" fill="#f8f0dd"/>
+  <path d="M36 24v30M21.5 29.5c3.5-1 6.5-.5 9 1M21.5 36c3.5-1 6.5-.5 9 1M41.5 30.5c2.5-1.5 5.5-2 9-1M41.5 37c2.5-1.5 5.5-2 9-1" fill="none" stroke="#24513e" stroke-width="2.2" stroke-linecap="round"/>
+  <path d="M45 16l1.9 4.1L51 22l-4.1 1.9L45 28l-1.9-4.1L39 22l4.1-1.9z" fill="#e2b975"/>
+</svg>

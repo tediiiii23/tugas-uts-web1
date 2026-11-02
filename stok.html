@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Katalog dan Stok Buku | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="stok">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">KOLEKSI TOKO BUKU</p>
+              <h1>Temukan Buku yang Dibutuhkan</h1>
+              <p>Jelajahi katalog, periksa stok, dan tambahkan buku pilihan ke keranjang.</p>
+            </div>
+            <div class="page-actions">
+              <span class="pill info">Total <strong id="stock-total">0</strong> judul</span><button type="button" class="btn" data-dialog="add-stock-modal" hidden>+ Tambah Buku Baru</button>
+            </div>
+          </header>
+          <section class="catalog-spotlight" aria-label="Buku pilihan">
+            <div class="spotlight-heading">
+              <div>
+                <p class="eyebrow">DI RAK TOKO BUKU</p>
+                <h2>Rekomendasi dari Katalog</h2>
+              </div>
+              <span class="caption">Ditampilkan dari data katalog buku</span>
+            </div>
+            <div id="catalog-highlights" class="catalog-grid" aria-live="polite"></div>
+          </section>
+          <section class="card" id="daftar-buku" aria-label="Tabel katalog buku">
+            <div class="card-pad" style="padding-bottom:15px">
+              <div class="subheading">
+                <h2>Daftar Buku dan Stok</h2>
+                <span class="caption" id="stock-count">0 buku</span>
+              </div>
+              <label class="searchbar" style="max-width:425px"><span aria-hidden="true">⌕</span><span class="visually-hidden">Cari buku</span><input type="search" id="book-search" placeholder="Cari nama, kode, atau jenis buku..."></label>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nama Buku</th>
+                    <th>Jenis</th>
+                    <th>Edisi</th>
+                    <th>Stok</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="stock-rows">
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+    <dialog id="add-stock-modal" aria-labelledby="add-stock-modal-heading">
+      <div class="dialog-head">
+        <h2 id="add-stock-modal-heading">Tambah Buku Baru</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="add-stock-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <form id="add-stock-form">
+          <div class="form-grid">
+            <div class="field">
+              <label for="stock-code">Kode Buku</label>
+              <input class="input" id="stock-code" placeholder="CONTOH001" required minlength="4" maxlength="18">
+            </div>
+            <div class="field">
+              <label for="stock-type">Jenis Buku</label>
+              <select id="stock-type" required>
+              <option value="Buku Ajar">Buku Ajar</option>
+              <option value="Referensi">Referensi</option>
+              <option value="Modul">Modul</option>
+              </select>
+            </div>
+            <div class="field span-2">
+              <label for="stock-name">Nama Buku</label>
+              <input class="input" id="stock-name" placeholder="Nama buku akademik" required>
+            </div>
+            <div class="field">
+              <label for="stock-edition">Edisi</label>
+              <input class="input" id="stock-edition" type="number" min="1" value="1" required>
+            </div>
+            <div class="field">
+              <label for="stock-qty">Jumlah Stok</label>
+              <input class="input" id="stock-qty" type="number" min="0" step="1" value="10" required>
+            </div>
+            <div class="field span-2">
+              <label for="stock-price">Harga (rupiah)</label>
+              <input class="input" id="stock-price" type="number" min="1000" step="1000" placeholder="120000" required>
+            </div>
+          </div>
+          <div class="dialog-actions">
+            <button type="button" class="btn btn-outline" data-close="add-stock-modal">Batal</button><button class="btn" type="submit">Simpan Buku</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+    <dialog id="edit-stock-modal" aria-labelledby="edit-stock-modal-heading">
+      <div class="dialog-head">
+        <h2 id="edit-stock-modal-heading">Ubah Jumlah Stok</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="edit-stock-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <p class="muted" id="edit-name"></p>
+        <form id="edit-stock-form">
+          <input id="edit-code" type="hidden">
+          <div class="field">
+            <label for="edit-stock">Jumlah stok terbaru</label>
+            <input class="input" id="edit-stock" type="number" min="0" step="1" required>
+          </div>
+          <div class="dialog-actions">
+            <button type="button" class="btn btn-outline" data-close="edit-stock-modal">Batal</button><button type="submit" class="btn">Perbarui Stok</button>
+          </div>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>

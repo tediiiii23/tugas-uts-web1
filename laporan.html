@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Laporan Pemesanan | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="laporan">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">LAPORAN PEMESANAN</p>
+              <h1>Laporan pemesanan</h1>
+              <p>Laporan disusun berdasarkan data contoh dan transaksi yang tersimpan di browser.</p>
+            </div>
+            <div class="page-actions">
+              <button class="btn btn-outline" id="print-report" type="button">▤ Cetak Laporan</button>
+            </div>
+          </header>
+          <section class="stats-sm" aria-label="Ringkasan laporan">
+            <div class="card">
+              <span class="muted">Jumlah Pesanan</span><strong id="report-count">0</strong><small>Sesuai hasil penyaringan</small>
+            </div>
+            <div class="card">
+              <span class="muted">Nilai Pemesanan</span><strong style="font-size:21px" id="report-revenue">Rp 0</strong><small>Total pembayaran</small>
+            </div>
+            <div class="card">
+              <span class="muted">Dalam Pengiriman</span><strong id="report-shipping">0</strong><small>Pesanan sedang dikirim</small>
+            </div>
+          </section>
+          <section class="card">
+            <div class="card-pad" style="padding-bottom:6px">
+              <div class="subheading">
+                <h2>Tabel Laporan</h2>
+                <span class="caption">Tersedia untuk dicetak</span>
+              </div>
+              <div class="filter-row">
+                <label class="searchbar"><span aria-hidden="true">⌕</span><span class="visually-hidden">Cari laporan</span><input type="search" id="report-search" placeholder="Cari DO atau nama pemesan"></label>
+                <label class="field"><span class="visually-hidden">Filter status</span><select id="report-status">
+                <option value="all">Semua status</option>
+                <option value="Diproses">Diproses</option>
+                <option value="Dikirim">Dikirim</option>
+                <option value="Dalam Perjalanan">Dalam Perjalanan</option>
+                <option value="Selesai">Selesai</option>
+                </select></label>
+              </div>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>No</th>
+                    <th>Nomor DO</th>
+                    <th>Tanggal</th>
+                    <th>Pemesan</th>
+                    <th>Metode</th>
+                    <th>Status</th>
+                    <th class="right">Total</th>
+                  </tr>
+                </thead>
+                <tbody id="report-rows">
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

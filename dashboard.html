@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Beranda | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Contoh CSS internal: melengkapi CSS eksternal dan inline pada project. -->
+    <style>
+      #hello {
+        text-wrap: balance;
+      }
+    </style>
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="dashboard">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">BERANDA / AKTIVITAS BUKU</p>
+              <h1>Ringkasan Aktivitas</h1>
+              <p>Informasi katalog dan pemesanan tersedia dalam satu halaman.</p>
+            </div>
+            <a class="btn btn-outline" href="riwayat.html">Lihat Riwayat →</a>
+          </header>
+          <section class="hero-card" aria-label="Sapaan pengguna">
+            <div class="hero-copy">
+              <span class="hero-kicker">SELAMAT DATANG DI TOKO BUKU <span aria-hidden="true">✳</span></span>
+              <h1 id="hello">Selamat datang!</h1>
+              <p id="hero-subtitle">Lihat katalog dan informasi pemesanan melalui halaman utama.</p>
+              <a class="btn" href="stok.html">Jelajahi Katalog →</a>
+            </div>
+            <div class="hero-book-scene" aria-hidden="true">
+              <span class="hero-scene-label">Koleksi pilihan</span>
+              <img class="hero-book book-a" src="img/manajemen_keuangan.jpg" alt="">
+              <img class="hero-book book-b" src="img/pengantar_komunikasi.jpg" alt="">
+              <img class="hero-book book-c" src="img/kepemimpinan.jpg" alt="">
+              <span class="hero-scene-stamp">Baca.<br>Belajar.<br>Berkembang.</span>
+            </div>
+          </section>
+          <section class="metric-grid" aria-label="Statistik">
+            <div class="card metric">
+              <div class="metric-top">
+                <span class="metric-title">Judul Buku</span><span class="metric-symbol">01</span>
+              </div>
+              <div class="metric-number" id="metric-books">
+                0
+              </div>
+              <div class="metric-bottom">
+                Tersedia dalam katalog
+              </div>
+            </div>
+            <div class="card metric">
+              <div class="metric-top">
+                <span class="metric-title">Total Unit Stok</span><span class="metric-symbol">02</span>
+              </div>
+              <div class="metric-number" id="metric-stock">
+                0
+              </div>
+              <div class="metric-bottom">
+                Termasuk stok tambahan
+              </div>
+            </div>
+            <div class="card metric">
+              <div class="metric-top">
+                <span class="metric-title">Transaksi</span><span class="metric-symbol">03</span>
+              </div>
+              <div class="metric-number" id="metric-orders">
+                0
+              </div>
+              <div class="metric-bottom">
+                Termasuk pesanan baru
+              </div>
+            </div>
+            <div class="card metric">
+              <div class="metric-top">
+                <span class="metric-title">Nilai Transaksi</span><span class="metric-symbol">04</span>
+              </div>
+              <div class="metric-number" style="font-size:23px" id="metric-total">
+                Rp 0
+              </div>
+              <div class="metric-bottom">
+                Total transaksi akun
+              </div>
+            </div>
+          </section>
+          <div class="main-grid">
+            <section class="card card-pad">
+              <div class="subheading">
+                <h2>Pilihan dari Katalog</h2>
+                <a href="stok.html" class="text-link">Lihat semua →</a>
+              </div>
+              <div id="featured-books">
+              </div>
+            </section>
+            <section class="card card-pad">
+              <div class="subheading">
+                <h2>Transaksi Terbaru</h2>
+                <a href="riwayat.html" class="text-link">Semua →</a>
+              </div>
+              <div id="latest-orders">
+              </div>
+              <hr class="subtle-divider">
+              <div class="subheading">
+                <h2>Akses Cepat</h2>
+              </div>
+              <div class="quick-links">
+                <a class="quick-link" href="checkout.html">🛒 Buat Pemesanan <span>→</span></a><a class="quick-link" href="tracking.html">📦 Lacak Pengiriman <span>→</span></a><a class="quick-link" href="laporan.html">▥ Laporan Pemesanan <span>→</span></a>
+              </div>
+            </section>
+          </div>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

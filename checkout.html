@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Pemesanan | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="checkout">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">PEMESANAN BUKU</p>
+              <h1>Selesaikan Pemesanan</h1>
+              <p>Periksa keranjang, lengkapi alamat pengiriman, dan pilih metode pembayaran.</p>
+            </div>
+            <a class="btn btn-outline" href="stok.html">← Kembali ke Katalog</a>
+          </header>
+          <div class="checkout-grid">
+            <div class="checkout-sections">
+              <section class="card card-pad" aria-labelledby="keranjang-title">
+                <div class="subheading">
+                  <h2 id="keranjang-title">Buku di Keranjang</h2>
+                  <span class="pill info">Jumlah dapat disesuaikan</span>
+                </div>
+                <p class="info-note" id="cart-warning" role="alert" hidden></p>
+                <div id="cart-list">
+                </div>
+                <h3 style="margin:23px 0 12px">Tambahkan Buku</h3>
+                <form id="add-to-cart-form" class="cart-add">
+                  <div class="field">
+                    <label for="cart-book">Pilih Buku</label>
+                    <select id="cart-book" required></select>
+                  </div>
+                  <div class="field">
+                    <label for="cart-add-qty">Jumlah</label>
+                    <input class="input" id="cart-add-qty" type="number" min="1" step="1" value="1" required>
+                  </div>
+                  <button class="btn" type="submit">+ Tambahkan</button>
+                </form>
+              </section>
+              <section class="card card-pad">
+                <div class="subheading">
+                  <h2>Informasi Pemesan</h2>
+                </div>
+                <form id="checkout-form">
+                  <div class="form-grid">
+                    <div class="field">
+                      <label for="buyer-name">Nama Lengkap</label>
+                      <input class="input" id="buyer-name" required minlength="3" autocomplete="name">
+                    </div>
+                    <div class="field">
+                      <label for="buyer-email">Email Pemesan</label>
+                      <input class="input" id="buyer-email" type="email" required autocomplete="email">
+                    </div>
+                    <div class="field span-2">
+                      <label for="buyer-phone">Nomor Telepon</label>
+                      <input class="input" id="buyer-phone" type="tel" required minlength="9" maxlength="17" placeholder="081234567890" autocomplete="tel">
+                    </div>
+                    <div class="field span-2">
+                      <label for="buyer-address">Alamat Lengkap Pengiriman</label>
+                      <textarea id="buyer-address" required minlength="12" placeholder="Jalan, nomor rumah, RT/RW, kelurahan, kecamatan, kota" autocomplete="street-address"></textarea>
+                    </div>
+                    <div class="field">
+                      <label for="delivery">Ekspedisi</label>
+                      <select id="delivery" required>
+                      <option value="JNE">JNE — Rp 18.000</option>
+                      <option value="Pos Indonesia">Pos Indonesia — Rp 15.000</option>
+                      <option value="SiCepat">SiCepat — Rp 20.000</option>
+                      </select>
+                    </div>
+                    <div class="field">
+                      <label for="payment">Metode Pembayaran</label>
+                      <select id="payment" required>
+                      <option value="Transfer Bank">Transfer Bank</option>
+                      <option value="E-Wallet">E-Wallet</option>
+                      <option value="COD">Bayar di Tempat (COD)</option>
+                      </select>
+                    </div>
+                  </div>
+                </form>
+              </section>
+            </div>
+            <aside class="card card-pad summary-box" aria-labelledby="summary-title">
+              <h2 id="summary-title">Ringkasan Pemesanan</h2>
+              <p class="muted">Tinjau kembali rincian transaksi sebelum menyimpan pesanan.</p>
+              <div class="sum-row">
+                <span>Jumlah Buku</span><strong id="sum-items">0 buku</strong>
+              </div>
+              <div class="sum-row">
+                <span>Subtotal</span><strong id="sum-subtotal">Rp 0</strong>
+              </div>
+              <div class="sum-row">
+                <span>Biaya Pengiriman</span><strong id="sum-shipping">Rp 0</strong>
+              </div>
+              <div class="sum-row total">
+                <span>Total Bayar</span><strong id="sum-total">Rp 0</strong>
+              </div>
+              <button class="btn btn-block" type="submit" id="place-order" form="checkout-form">Buat Pesanan →</button>
+              <p class="checkout-note">Pembayaran pada aplikasi ini merupakan simulasi dan tidak memproses transaksi keuangan. Nomor pesanan dibuat setelah pemesanan berhasil disimpan.</p>
+            </aside>
+          </div>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+    <dialog id="order-success-modal" aria-labelledby="order-success-modal-heading">
+      <div class="dialog-head">
+        <h2 id="order-success-modal-heading">Pemesanan Berhasil</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="order-success-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <div style="text-align:center">
+          <div style="font-size:53px">
+            ✅
+          </div>
+          <p>Pesanan berhasil dibuat dan tersimpan pada browser ini.</p>
+          <div class="info-note" style="text-align:left">
+            <div class="caption">
+              NOMOR DELIVERY ORDER
+            </div>
+            <h2 id="order-success-number" style="margin:4px 0">-</h2>
+            <div>
+              Total: <strong id="order-success-total">Rp 0</strong>
+            </div>
+          </div>
+          <p class="caption">Simpan nomor ini untuk memeriksa status pengiriman pesanan.</p>
+        </div>
+        <div class="dialog-actions">
+          <a href="riwayat.html" class="btn btn-outline">Lihat Riwayat</a><a href="tracking.html" id="success-track" class="btn">Lacak Pesanan →</a>
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>

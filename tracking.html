@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Pelacakan Pengiriman | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="tracking">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">INFORMASI PENGIRIMAN</p>
+              <h1>Lacak perjalanan bukumu</h1>
+              <p>Masukkan nomor pesanan untuk melihat status dan informasi pengiriman.</p>
+            </div>
+          </header>
+          <section class="card card-pad">
+            <h2>Cek Status Pesanan</h2>
+            <p class="muted">Gunakan nomor contoh <strong>20230012</strong> atau <strong>20230013</strong> sesuai akun, atau nomor dari pemesanan yang baru dibuat.</p>
+            <form id="tracking-form" class="tracking-search">
+              <div class="field">
+                <label for="tracking-no">Nomor Delivery Order</label>
+                <input class="input" id="tracking-no" required placeholder="Contoh: 20230012" autocomplete="off">
+              </div>
+              <button class="btn" type="submit" style="align-self:end;min-height:46px">⌕ Cari Pengiriman</button>
+            </form>
+          </section>
+          <section class="card card-pad tracking-details" id="tracking-result" aria-live="polite" hidden>
+            <div class="subheading" id="tracking-head">
+            </div>
+            <div class="progress-steps" id="tracking-progress" aria-label="Progress pengiriman">
+            </div>
+            <h3>Detail Pengiriman</h3>
+            <div class="detail-grid" id="tracking-fields">
+            </div>
+            <hr class="subtle-divider">
+            <h3>Riwayat Perjalanan</h3>
+            <div class="timeline" id="tracking-events">
+            </div>
+          </section>
+          <section id="tracking-empty" class="card tracking-details" hidden>
+            <div class="empty">
+              <div class="empty-illustration">
+                📦
+              </div>
+              <h3>Data Pengiriman Tidak Ditemukan</h3>
+              <p id="tracking-not-found">Periksa kembali nomor Delivery Order.</p>
+            </div>
+          </section>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>

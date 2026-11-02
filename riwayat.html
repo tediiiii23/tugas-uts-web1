@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Toko Buku - aplikasi toko buku akademik, UTS Pemrograman Web 1">
+    <title>Riwayat Transaksi | Toko Buku</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/data.js"></script>
+    <script defer src="js/script.js"></script>
+  </head>
+  <body data-page="riwayat">
+    <div class="app-shell" id="app-shell">
+      <div id="sidebar-mount">
+      </div>
+      <div class="main-area">
+        <div id="topbar-mount">
+        </div>
+        <main class="page-content" id="main-content">
+          <header class="page-head">
+            <div>
+              <p class="eyebrow">RIWAYAT TRANSAKSI</p>
+              <h1>Riwayat Pemesanan</h1>
+              <p>Lihat transaksi yang tercatat beserta rincian setiap pemesanan.</p>
+            </div>
+            <a href="checkout.html" class="btn">+ Pesanan Baru</a>
+          </header>
+          <section class="card">
+            <div class="card-pad" style="padding-bottom:10px">
+              <div class="subheading">
+                <h2>Daftar Transaksi</h2>
+                <span class="badge-count" id="history-count">0 transaksi</span>
+              </div>
+              <label class="searchbar" style="max-width:440px"><span aria-hidden="true">⌕</span><span class="visually-hidden">Cari transaksi</span><input type="search" id="history-search" placeholder="Cari nomor DO, nama, ekspedisi, status"></label>
+            </div>
+            <div class="table-scroll">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Nomor DO / Tanggal</th>
+                    <th>Pemesan</th>
+                    <th>Ekspedisi</th>
+                    <th>Status</th>
+                    <th>Total</th>
+                    <th>Aksi</th>
+                  </tr>
+                </thead>
+                <tbody id="history-rows">
+                </tbody>
+              </table>
+            </div>
+          </section>
+          <footer class="footer" id="footer">
+          </footer>
+        </main>
+      </div>
+    </div>
+    <dialog id="detail-modal" aria-labelledby="detail-modal-heading">
+      <div class="dialog-head">
+        <h2 id="detail-modal-heading">Detail Transaksi</h2>
+        <button class="icon-close" type="button" aria-label="Tutup" data-close="detail-modal">×</button>
+      </div>
+      <div class="dialog-body">
+        <p class="caption">NOMOR DELIVERY ORDER</p>
+        <h2 id="detail-no">-</h2>
+        <div id="detail-content">
+        </div>
+      </div>
+    </dialog>
+  </body>
+</html>
